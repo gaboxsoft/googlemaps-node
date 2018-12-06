@@ -1,0 +1,42 @@
+{
+  "coord": {
+    "lon": -99.56,
+    "lat": 19.41
+  },
+  "weather": [
+    {
+      "id": 802,
+      "main": "Clouds",
+      "description": "scattered clouds",
+      "icon": "03n"
+    }
+  ],
+  "base": "stations",
+  "main": {
+    "temp": 280.36,
+    "pressure": 1030,
+    "humidity": 86,
+    "temp_min": 278.15,
+    "temp_max": 282.15
+  },
+  "visibility": 9656,
+  "wind": {
+    "speed": 0.92,
+    "deg": 8.50824
+  },
+  "clouds": {
+    "all": 40
+  },
+  "dt": 1544093400,
+  "sys": {
+    "type": 1,
+    "id": 7169,
+    "message": 0.0173,
+    "country": "MX",
+    "sunrise": 1544101158,
+    "sunset": 1544140786
+  },
+  "id": 3514683,
+  "name": "Villa Cuauhtemoc",
+  "cod": 200
+}

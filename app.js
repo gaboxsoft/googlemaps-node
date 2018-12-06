@@ -1,5 +1,7 @@
 const fs = require('fs');
-const localizacion = require('./googlemaps/googlemaps');
+const localizacionGoogleMaps = require('./googlemaps/googlemaps');
+const climaFromCoords = require('./clima/climaFromCoords');
+const colors = require('colors');
 
 const argv = require('yargs')
     .options({
@@ -11,16 +13,36 @@ const argv = require('yargs')
     })
     .help()
     .argv;
-console.log(argv.lugar)
 
-const lugar = argv.lugar ? argv.lugar : encodeURI("Tetitla Otzolotepec México");
-localizacion.getLocalizacion(lugar)
-    .then(loc => {
-        console.log('Dirección =>> ', loc.lugar);
-        console.log('latitud=>> ', loc.lat);
-        console.log('longitud=>> ', loc.lng);
-    })
-    .catch(e => console.log(e));
+console.log('=========' + argv.lugar + "===============\n");
+
+const lugar = encodeURI(argv.lugar ? argv.lugar : "Tetitla Otzolotepec México");
+
+
+const getClima = async(lugar) => {
+    try {
+
+        const coordenadas = await localizacionGoogleMaps.getCoordenadas(lugar);
+        let result = `Lugar: `.green + coordenadas.lugar.red + `\n` +
+            `latitud: `.green + coordenadas.lat + `\n` +
+            `longitud: `.green + coordenadas.lng + `\n`;
+
+        const clima = await climaFromCoords.get(coordenadas.lat, coordenadas.lng);
+
+        return result +=
+            `La temperatura en ${clima.lugar} es de ${clima.temperatura} grados centígrados`.red + `\n`;
+
+    } catch (error) {
+        return (`No pude encontrar el clima para ` + lugar);
+    }
+}
+
+
+getClima(lugar)
+    .then(msg => console.log(msg))
+    .catch(e => clg(e));
+
+
 
 
 

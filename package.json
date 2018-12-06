@@ -1,0 +1,25 @@
+{
+  "name": "05-maps",
+  "version": "1.0.0",
+  "description": "USO: \r node app -direccion \"lugar\"\r REGRESA:\r Dirección y localización en latitud y longitud",
+  "main": "app.js",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "colors": "^1.3.2",
+    "yargs": "^12.0.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gaboxsoft/googlemaps-node.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gaboxsoft/googlemaps-node/issues"
+  },
+  "homepage": "https://github.com/gaboxsoft/googlemaps-node#readme"
+}
